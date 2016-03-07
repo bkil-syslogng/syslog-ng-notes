@@ -31,6 +31,9 @@ Fixes
 
  * Fixed global inheritance of `pass-unix-credentials()` and `create-dirs()`.
 
+ * Certain compilers complained about an undefined symbol when setting
+   `keep-alive(yes)`.
+
 
 Credits
 -------
