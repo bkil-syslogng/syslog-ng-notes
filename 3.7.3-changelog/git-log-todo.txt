@@ -400,17 +400,6 @@ Date:   Mon Nov 30 14:22:09 2015 +0100
     
     Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
 
-commit 15bd0ce83d2bd598ee6c1a0a45b10d27fe6419fc
-Author: bkil-syslogng <tamas.nagy@balabit.com>
-Date:   Tue Dec 15 18:04:06 2015 +0100
-
-    .travis.yml: unset PYTHON_CFLAGS
-    
-    Somehow, nowadays the infrastructure is unhealthy and some flags remain
-    set that interfere with autoconf include directory detection.
-    
-    Signed-off-by: bkil-syslogng <tamas.nagy@balabit.com>
-
 commit ca96362a6cddad877fad9366868059089b33474b
 Merge: 2932bef e435faa
 Author: Budai Laszlo <laszlo.budai@balabit.com>
