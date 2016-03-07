@@ -1,3 +1,37 @@
+3.7.3
+=====
+
+<!-- Mon, 7 Mar 2016 13:37:00 +0100 -->
+
+Changes compared to 3.7.2:
+
+Improvements
+------------
+
+
+Fixes
+-----
+
+
+Credits
+-------
+
+syslog-ng is developed as a community project, and as such it relies
+on volunteers, to do the work necessarily to produce syslog-ng.
+
+Reporting bugs, testing changes, writing code or simply providing
+feedback are all important contributions, so please if you are a user
+of syslog-ng, contribute.
+
+We would like to thank the following people for their contribution:
+
+Adam Arsenault, Adam Istvan Mozes, Andras Mitzki, Avleen Vig,
+Balazs Scheidler, Fabien Wernli, Gergely Czuczy, Gergely Nagy, Gergo Nagy,
+Laszlo Budai, Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
+Tibor Benke, Viktor Juhasz, Vincent Bernat, Wang Long, Zdenek Styblik,
+Zoltan Pallagi.
+
+
 3.7.2
 =====
 
