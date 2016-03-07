@@ -38,47 +38,6 @@ Date:   Wed Dec 16 10:19:22 2015 +0100
     
     Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
 
-commit d8f1a1673190a1a0d77a7c2c5413e233d480f14f
-Merge: f3debc8 3a18c01
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Fri Feb 12 08:56:27 2016 +0100
-
-    Merge pull request #923 from MrAnno/f/amqp-errors-3.7
-    
-    Improve error handling in amqp
-
-commit 3a18c01756e4684abf40946468ae715fe7df05fb
-Author: Balazs Scheidler <balazs.scheidler@balabit.com>
-Date:   Thu Nov 26 09:06:10 2015 +0100
-
-    amqp: add error tag to amqp_basic_publish() error handler
-    
-    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
-
-commit 45da122e65b01d8e6e1d0cd6ef8f4322b9e884ef
-Author: Balazs Scheidler <balazs.scheidler@balabit.com>
-Date:   Thu Nov 26 09:05:57 2015 +0100
-
-    amqp: fix error tag not to contain a space
-    
-    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
-
-commit 122579667ee13dae96ae0afb9b68beeb5c6474d5
-Author: Balazs Scheidler <balazs.scheidler@balabit.com>
-Date:   Thu Nov 26 09:05:44 2015 +0100
-
-    amqp: simplify msg_error() calls
-    
-    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
-
-commit 405fd54b17668207ec0e683a734971474b72602a
-Author: Balazs Scheidler <balazs.scheidler@balabit.com>
-Date:   Thu Nov 26 09:05:08 2015 +0100
-
-    amqp: white space fixes
-    
-    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
-
 commit 6228e6130b113dffc4b1327ba5f5670b4a710e44
 Merge: 5508650 124e069
 Author: Budai Laszlo <laszlo.budai@balabit.com>
