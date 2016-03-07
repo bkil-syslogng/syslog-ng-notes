@@ -113,33 +113,3 @@ Date:   Tue Nov 17 08:37:39 2015 +0100
     
     Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
 
-commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
-Merge: 0fb9df4 15259a7
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Wed Nov 4 06:56:35 2015 +0100
-
-    Merge pull request #751 from dnsjts/fix-log-msg-ack-cached-abort
-    
-    logmsg: Fix a logmsg_cached_abort assignment
-
-commit 15259a738b0b72ef36f5d1ed3811fee83031cae0
-Author: MÓZES Ádám István <adam.mozes@balabit.com>
-Date:   Wed Oct 28 15:19:42 2015 +0100
-
-    logmsg: Fix a logmsg_cached_abort assignment
-    
-    Explanation for the diff:
-     * `#define ACKTYPE_TO_ABORTFLAG(x) (x == AT_ABORTED ? 1 : 0)`
-     * AT_ABORTED is equal to 2
-    
-    Therefore the second check will fail always.
-    
-    This issue has been found by Coverity Scan.
-    CID: 41449
-    Related Common Weakness Enumeration: CWE-569.
-    
-    The report can be found here:
-    https://scan4.coverity.com/
-    
-    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
-
