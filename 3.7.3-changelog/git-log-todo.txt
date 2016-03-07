@@ -308,64 +308,6 @@ Date:   Tue Nov 17 08:37:39 2015 +0100
     
     Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
 
-commit 55086500f7febc5ce04a3bfed4fbd153a231bb93
-Merge: 9f2354a 4bf0624
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Fri Feb 5 11:02:15 2016 +0100
-
-    Merge pull request #905 from MrAnno/affile-globalcfg-inher-fix-3.7
-    
-    Fix create-dirs() inheritance in file destinations
-
-commit 4bf0624c194bed0e4d709740dc30c16d9e504fa0
-Author: László Várady <laszlo.varady@balabit.com>
-Date:   Wed Feb 3 15:18:33 2016 +0100
-
-    affile: fix create-dirs() inheritance
-    
-    When the global `create-dirs` option was set to `yes`, the local one was ignored.
-    
-    Signed-off-by: László Várady <laszlo.varady@balabit.com>
-
-commit 9f2354a0912e71db376cbecbc9b649aa2222f4a0
-Merge: 293dde7 e93dbf5
-Author: Tibor Benke <ihrwein@gmail.com>
-Date:   Fri Feb 5 08:35:56 2016 +0100
-
-    Merge pull request #900 from MrAnno/afsocket-globalcfg-inher-fix-3.7
-    
-    Fix global option inheritance in afunix-source
-
-commit e93dbf5a4f3ca07a6f388598cf4151b82c4e14eb
-Author: László Várady <laszlo.varady@balabit.com>
-Date:   Wed Feb 3 14:17:12 2016 +0100
-
-    afsocket: fix pass-unix-credentials() global inheritance
-    
-    The global `pass-unix-credentials` option was not inherited in afunix-source
-    if the `options{};` block was positioned lower in the
-    configuration file than the given module declaration.
-    
-    This commit fixes this issue by moving the "inheritance" assignment from
-    `afunix_sd_new_instance` to `afunix_sd_init`.
-    
-    Signed-off-by: László Várady <laszlo.varady@balabit.com>
-
-commit ca88bac7051cf8dbe877fda61c977345b8c5565f
-Author: László Várady <laszlo.varady@balabit.com>
-Date:   Wed Feb 3 14:15:55 2016 +0100
-
-    afsocket: fix create-dirs() global inheritance
-    
-    The global `create-dirs` option was not inherited in afunix-source
-    if the `options{};` block was positioned lower in the
-    configuration file than the given module declaration.
-    
-    This commit fixes this issue by moving the "inheritance" assignment from
-    `afunix_sd_new_instance` to `afunix_sd_init`.
-    
-    Signed-off-by: László Várady <laszlo.varady@balabit.com>
-
 commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
 Merge: 0fb9df4 15259a7
 Author: Budai Laszlo <laszlo.budai@balabit.com>

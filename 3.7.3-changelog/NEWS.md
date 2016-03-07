@@ -26,6 +26,8 @@ Fixes
 
  * Fix a SIGSEGV when a Redis command returns an error.
 
+ * Fixed global inheritance of `pass-unix-credentials()` and `create-dirs()`.
+
 
 Credits
 -------
@@ -42,7 +44,9 @@ We would like to thank the following people for their contribution:
 Adam Arsenault, Adam Istvan Mozes, Andras Mitzki, Avleen Vig,
 Balazs Scheidler, Fabien Wernli, Gergely Czuczy, Gergely Nagy, Gergo Nagy,
 Gyorgy Pasztor,
-Laszlo Budai, Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
+Laszlo Budai,
+Laszlo Varady,
+Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
 Tibor Benke, Viktor Juhasz, Vincent Bernat, Wang Long, Zdenek Styblik,
 Zoltan Fried,
 Zoltan Pallagi.
