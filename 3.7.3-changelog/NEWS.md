@@ -19,6 +19,8 @@ Improvements
    The time source used by `/dev/kmsg` is not updated after system
    SUSPEND/RESUME.
 
+ * Updated Python package requirements.
+
 Fixes
 -----
 

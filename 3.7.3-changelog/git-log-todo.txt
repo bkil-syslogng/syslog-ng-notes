@@ -366,40 +366,6 @@ Date:   Wed Feb 3 14:15:55 2016 +0100
     
     Signed-off-by: László Várady <laszlo.varady@balabit.com>
 
-commit 293dde71edf7017293fe22ecbe32ab60bd1c955b
-Merge: 02faa75 fc970f7
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Thu Feb 4 15:47:34 2016 +0100
-
-    Merge pull request #902 from MrAnno/fix-travis-python-3.7
-    
-    Fix Travis' python related issues in syslog-ng 3.7
-
-commit fc970f7f9db5099d64e254adaa41225cd7baf1d0
-Author: Tibor Benke <tibor.benke@balabit.com>
-Date:   Mon Nov 30 11:45:02 2015 +0100
-
-    requirements: update pylint and specify concrete astroid version
-    
-    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
-
-commit aac1a9d8555e6d9f084cd3e36f5c4653670d65e8
-Author: Tibor Benke <tibor.benke@balabit.com>
-Date:   Mon Nov 30 14:22:09 2015 +0100
-
-    python: fix 1.5 pylint errors
-    
-    ************* Module syslogng.debuggercli.completerlang
-    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/completerlang.py:3: [C0411(wrong-import-order), ] standard import "import sys" comes before "import ply.yacc as yacc"
-    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/completerlang.py:5: [C0411(wrong-import-order), ] standard import "from abc import abstractmethod, ABCMeta" comes before "import ply.yacc as yacc"
-    ************* Module syslogng.debuggercli.readline
-    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/readline.py:3: [C0411(wrong-import-order), ] standard import "import readline" comes before "from .debuggercli import DebuggerCLI"
-    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/readline.py:4: [C0411(wrong-import-order), ] standard import "import traceback" comes before "from .debuggercli import DebuggerCLI"
-    ************* Module syslogng.debuggercli.syslognginternals
-    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/syslognginternals.py:83: [C0413(wrong-import-position), ] Import "from _syslogngdbg import *" should be placed at the top of the module
-    
-    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
-
 commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
 Merge: 0fb9df4 15259a7
 Author: Budai Laszlo <laszlo.budai@balabit.com>
