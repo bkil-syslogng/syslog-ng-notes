@@ -150,32 +150,6 @@ Date:   Thu Nov 26 09:05:08 2015 +0100
     
     Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
 
-commit f3debc8e0ccbcbc3d3289b038f036e886fd9cadf
-Merge: 6228e61 e09a5ad
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Fri Feb 12 08:56:14 2016 +0100
-
-    Merge pull request #922 from MrAnno/f/fix-afsocket-integer-underflow-3.7
-    
-    afsocket: Fix an integer underflow.
-
-commit e09a5ad0e668aab142f36bddde91c6bd55635ca0
-Author: Hanno <hanno@gentoo.org>
-Date:   Thu Nov 12 13:28:19 2015 +0100
-
-    afsocket: Fix an integer underflow.
-    
-    The reason is that the function return value is a -1 on error, however
-    the variable to store that is unsigned, therefore it is unable to store
-    the error value and will underflow. The subsequent check will therefore
-    not catch the error.
-    To fix this change content_len from gsize (unsigned) to gssigned
-    (signed).
-    
-    This was found with Address Sanitizer.
-    
-    Signed-off-by: Hanno Böck <hanno@hboeck.de>
-
 commit 6228e6130b113dffc4b1327ba5f5670b4a710e44
 Merge: 5508650 124e069
 Author: Budai Laszlo <laszlo.budai@balabit.com>

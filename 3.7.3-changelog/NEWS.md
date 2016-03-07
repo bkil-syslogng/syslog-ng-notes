@@ -34,6 +34,9 @@ Fixes
  * Certain compilers complained about an undefined symbol when setting
    `keep-alive(yes)`.
 
+ * For certain use cases, afsocket would not handle procfs read errors due
+   to an integer underflow.
+
 
 Credits
 -------
@@ -50,6 +53,7 @@ We would like to thank the following people for their contribution:
 Adam Arsenault, Adam Istvan Mozes, Andras Mitzki, Avleen Vig,
 Balazs Scheidler, Fabien Wernli, Gergely Czuczy, Gergely Nagy, Gergo Nagy,
 Gyorgy Pasztor,
+Hanno Bock,
 Laszlo Budai,
 Laszlo Varady,
 Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
