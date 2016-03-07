@@ -400,30 +400,6 @@ Date:   Mon Nov 30 14:22:09 2015 +0100
     
     Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
 
-commit ca96362a6cddad877fad9366868059089b33474b
-Merge: 2932bef e435faa
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Mon Nov 9 17:17:11 2015 +0100
-
-    Merge pull request #771 from ihrwein/f/fix-kernel-timestamps-3.7
-    
-    system: use keep-timestamp(no) in case of Linux kernel log messages
-
-commit e435faa9df9288e0a7295106b138e494a8a1a4fd
-Author: Benke Tibor <ihrwein@gmail.com>
-Date:   Wed May 27 13:18:53 2015 +0200
-
-    system: use keep-timestamp(no) in case of Linux kernel log messages
-    
-    Kernel messages read from /dev/kmsg may not have accurate timestamps.
-    The  time  source  used for the logs is not updated after system
-     SUSPEND/RESUME. With this patch we ignore the original (and possibly
-     inaccurate) timestamp and use the time of reception.
-    
-    Fixes #121
-    
-    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
-
 commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
 Merge: 0fb9df4 15259a7
 Author: Budai Laszlo <laszlo.budai@balabit.com>

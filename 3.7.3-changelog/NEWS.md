@@ -15,6 +15,9 @@ Improvements
 
  * Keep the program destination open between configuration reloads.
 
+ * `system-source` now uses `keep-timestamp(no)` for Linux kernel log.
+   The time source used by `/dev/kmsg` is not updated after system
+   SUSPEND/RESUME.
 
 Fixes
 -----
