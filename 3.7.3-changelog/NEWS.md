@@ -42,6 +42,8 @@ Fixes
 
  * Resolve deadlock in logwriter triggered by `suppress()`
 
+ * Mitigate possible deadlock in patterndb
+
 
 Credits
 -------
