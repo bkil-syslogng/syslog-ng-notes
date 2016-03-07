@@ -40,6 +40,8 @@ Fixes
  * Enhanced Java version check and the handling of SyslogNgInternalLogger
    (used by Kafka), the FATAL loglevel and `getLocationInformation()`.
 
+ * Resolve deadlock in logwriter triggered by `suppress()`
+
 
 Credits
 -------
