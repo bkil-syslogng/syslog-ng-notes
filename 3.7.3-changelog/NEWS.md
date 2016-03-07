@@ -13,6 +13,8 @@ Improvements
  * Basic FreeBSD and HP-UX support of syslog debug bundle generator by
    improving POSIX shell compatibility.
 
+ * Keep the program destination open between configuration reloads.
+
 
 Fixes
 -----
