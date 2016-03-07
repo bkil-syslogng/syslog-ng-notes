@@ -729,26 +729,6 @@ Date:   Fri Oct 30 17:04:04 2015 +0100
     * basic FreeBSD support
     * basic HP-UX support
 
-commit bfdd641c15390cc8864f3d58d7a60023d8dcf2a5
-Merge: 9e8d6cd 1f95772
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Wed Nov 4 06:58:04 2015 +0100
-
-    Merge pull request #756 from deirf/f/redis-command-error
-    
-    redis: Return error result when redis command is failed
-
-commit 1f9577208368fa1a19cec6642e4acff03deef326
-Author: Fried Zoltan <zoltan.fried@balabit.com>
-Date:   Fri Oct 30 14:13:15 2015 +0100
-
-    redis: Return error result when redis command is failed
-    
-    Fix a SIGSEGV when redis result of command return an error.
-    Fixes #754
-    
-    Signed-off-by: Fried Zoltan <zoltan.fried@balabit.com>
-
 commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
 Merge: 0fb9df4 15259a7
 Author: Budai Laszlo <laszlo.budai@balabit.com>

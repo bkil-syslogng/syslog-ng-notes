@@ -14,6 +14,8 @@ Improvements
 Fixes
 -----
 
+ * Fix a SIGSEGV when a Redis command returns an error.
+
 
 Credits
 -------
@@ -31,6 +33,7 @@ Adam Arsenault, Adam Istvan Mozes, Andras Mitzki, Avleen Vig,
 Balazs Scheidler, Fabien Wernli, Gergely Czuczy, Gergely Nagy, Gergo Nagy,
 Laszlo Budai, Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
 Tibor Benke, Viktor Juhasz, Vincent Bernat, Wang Long, Zdenek Styblik,
+Zoltan Fried,
 Zoltan Pallagi.
 
 
