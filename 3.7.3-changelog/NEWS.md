@@ -8,6 +8,8 @@ Changes compared to 3.7.2:
 Improvements
 ------------
 
+ * Added eventlog to the list of required pkg-config packages.
+
 
 Fixes
 -----

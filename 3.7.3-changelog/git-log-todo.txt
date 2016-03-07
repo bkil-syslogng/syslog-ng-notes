@@ -779,19 +779,3 @@ Date:   Wed Oct 28 15:19:42 2015 +0100
     
     Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
 
-commit 0fb9df4ff44581b3e6860fec5ad19b28450b7d52
-Merge: 6b119e0 9e6c3f5
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Tue Oct 27 11:40:36 2015 +0100
-
-    Merge pull request #744 from ihrwein/f/fix-pkg-config-eventlog
-    
-    syslog-ng.pc: add eventlog as a required package
-
-commit 9e6c3f51e916c9a185e088eb0c169f36a77e0c98
-Author: Tibor Benke <ihrwein@gmail.com>
-Date:   Fri Oct 23 20:09:54 2015 +0200
-
-    syslog-ng.pc: add eventlog as a required package
-    
-    Signed-off-by: Tibor Benke <ihrwein@gmail.com>
