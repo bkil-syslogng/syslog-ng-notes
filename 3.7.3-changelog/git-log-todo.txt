@@ -1,26 +1,3 @@
-commit 9caa9de6718b8cd22e7f7b5ecb546d6d782a4fea
-Merge: 120ccac 5b286b6
-Author: Tamas Nagy <tamas.nagy@balabit.com>
-Date:   Wed Mar 2 12:42:20 2016 +0100
-
-    Merge pull request #960 from ihrwein/fix-disable-mongodb
-    
-    Fix disabling MongoDB destination support in syslog-ng 3.7
-
-commit 5b286b60941ca826343d905310bb12f2ec6c3850
-Author: Tibor Benke <tibor.benke@balabit.com>
-Date:   Mon Feb 29 16:06:22 2016 +0100
-
-    configure: fix disabling MongoDB destination support
-    
-    There was a minor typo in the configure script which prevented
-    us from disabling the compilation of the MongoDB destination.
-    
-    You can use --with-libmongo-client=no configure option to disable
-    this destination.
-    
-    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
-
 commit 120ccac213ab3a3866e47cce14e074dd22b7f881
 Merge: 68343e3 9b235dc
 Author: Budai Laszlo <laszlo.budai@balabit.com>

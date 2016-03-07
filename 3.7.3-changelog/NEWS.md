@@ -21,6 +21,9 @@ Improvements
 
  * Updated Python package requirements.
 
+ * Can now compile without MongoDB.
+
+
 Fixes
 -----
 
