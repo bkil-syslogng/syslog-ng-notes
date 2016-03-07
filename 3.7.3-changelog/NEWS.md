@@ -8,6 +8,10 @@ Changes compared to 3.7.2:
 Improvements
 ------------
 
+ * Updated Python package requirements.
+
+ * Can now compile without MongoDB.
+
  * Added eventlog to the list of required pkg-config packages.
 
  * Basic FreeBSD and HP-UX support of syslog debug bundle generator by
@@ -19,15 +23,15 @@ Improvements
    The time source used by `/dev/kmsg` is not updated after system
    SUSPEND/RESUME.
 
- * Updated Python package requirements.
-
- * Can now compile without MongoDB.
-
 
 Fixes
 -----
 
  * Fix a SIGSEGV when a Redis command returns an error.
+
+ * Resolve deadlock in logwriter triggered by `suppress()`
+
+ * Mitigate possible deadlock in patterndb
 
  * Fixed global inheritance of `pass-unix-credentials()` and `create-dirs()`.
 
@@ -39,10 +43,6 @@ Fixes
 
  * Enhanced Java version check and the handling of SyslogNgInternalLogger
    (used by Kafka), the FATAL loglevel and `getLocationInformation()`.
-
- * Resolve deadlock in logwriter triggered by `suppress()`
-
- * Mitigate possible deadlock in patterndb
 
 
 Credits
