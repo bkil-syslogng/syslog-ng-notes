@@ -10,6 +10,9 @@ Improvements
 
  * Added eventlog to the list of required pkg-config packages.
 
+ * Basic FreeBSD and HP-UX support of syslog debug bundle generator by
+   improving POSIX shell compatibility.
+
 
 Fixes
 -----
@@ -31,6 +34,7 @@ We would like to thank the following people for their contribution:
 
 Adam Arsenault, Adam Istvan Mozes, Andras Mitzki, Avleen Vig,
 Balazs Scheidler, Fabien Wernli, Gergely Czuczy, Gergely Nagy, Gergo Nagy,
+Gyorgy Pasztor,
 Laszlo Budai, Peter Czanik, Robert Fekete, Saurabh Shukla, Tamas Nagy,
 Tibor Benke, Viktor Juhasz, Vincent Bernat, Wang Long, Zdenek Styblik,
 Zoltan Fried,

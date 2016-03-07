@@ -710,25 +710,6 @@ Date:   Wed Nov 4 13:26:16 2015 +0100
     Signed-off-by: Fried Zoltán <zoltan.fried@balabit.com>
     Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
 
-commit 092b712b2090f03ce2261fd1de88b085c525f1a3
-Merge: bfdd641 68ebe30
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Wed Nov 4 06:59:17 2015 +0100
-
-    Merge pull request #757 from pasztor/f/syslog-debun
-    
-    contrib/syslog-debun: portability improvements and fixes
-
-commit 68ebe30e6eb253e2895222c96e8fd68481f9ab55
-Author: PÁSZTOR György <gyorgy.pasztor@balabit.com>
-Date:   Fri Oct 30 17:04:04 2015 +0100
-
-    contrib/syslog-debun: portability improvements and fixes
-    
-    * eliminate bashisms (not yet complete!) and become more posix shell compatible
-    * basic FreeBSD support
-    * basic HP-UX support
-
 commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
 Merge: 0fb9df4 15259a7
 Author: Budai Laszlo <laszlo.budai@balabit.com>
