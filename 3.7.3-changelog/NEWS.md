@@ -37,6 +37,9 @@ Fixes
  * For certain use cases, afsocket would not handle procfs read errors due
    to an integer underflow.
 
+ * Enhanced Java version check and the handling of SyslogNgInternalLogger
+   (used by Kafka), the FATAL loglevel and `getLocationInformation()`.
+
 
 Credits
 -------
