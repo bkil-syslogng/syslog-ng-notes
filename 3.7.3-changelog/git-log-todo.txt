@@ -1,0 +1,797 @@
+commit 9caa9de6718b8cd22e7f7b5ecb546d6d782a4fea
+Merge: 120ccac 5b286b6
+Author: Tamas Nagy <tamas.nagy@balabit.com>
+Date:   Wed Mar 2 12:42:20 2016 +0100
+
+    Merge pull request #960 from ihrwein/fix-disable-mongodb
+    
+    Fix disabling MongoDB destination support in syslog-ng 3.7
+
+commit 5b286b60941ca826343d905310bb12f2ec6c3850
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Feb 29 16:06:22 2016 +0100
+
+    configure: fix disabling MongoDB destination support
+    
+    There was a minor typo in the configure script which prevented
+    us from disabling the compilation of the MongoDB destination.
+    
+    You can use --with-libmongo-client=no configure option to disable
+    this destination.
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 120ccac213ab3a3866e47cce14e074dd22b7f881
+Merge: 68343e3 9b235dc
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Mar 2 09:35:10 2016 +0100
+
+    Merge pull request #963 from ihrwein/port-fix-java-logger
+    
+    Backport of "Fix java logger"
+
+commit 9b235dce12c67407e98fbb43eaf128c5357484f2
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Feb 29 16:30:14 2016 +0100
+
+    java-modules: add missing FATAL loglevel
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit 3165f35164c27163a53b339169daf070aa8d5d66
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Feb 29 15:10:23 2016 +0100
+
+    java-modules: remove other log appenders before adding SyslogNgInternalLogger
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit e12eccd56f3651177d32e4cdd298184171e1ad65
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Feb 29 15:02:26 2016 +0100
+
+    java-modules: fix whitespaces
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit 352daa219d22702346c319a51a7f36d9e700eac6
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Feb 29 15:04:55 2016 +0100
+
+    java-modules: remove bogus locationInformationExists() check
+    
+    The getLocationInformation() function has a caching side-effect,
+    the locationInformationExists() method only checks whether this cache is valid.
+    
+    "locationInformationExists() returns true if location information
+    has been extracted."
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit d2ea3ca955ecd23dc5de341aebf271396cb60d94
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Feb 29 14:31:07 2016 +0100
+
+    java-modules: specify minimum logging level
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit 68343e37f81f6f9851d0aff018333ce5fd373e98
+Merge: 87709d5 603e711
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 19:03:30 2016 +0100
+
+    Merge pull request #927 from MrAnno/f/configure-java-3.7
+    
+    Fix java version check ('test' has '=', not '==' as operator)
+
+commit 603e7119248fb79c8f13545649a4cd23244cb5ce
+Author: David Schweikert <dws@open.ch>
+Date:   Wed Feb 3 09:53:29 2016 +0100
+
+    Makefiles: fix java version check ('test' has '=', not '==' as operator)
+    Signed-off-by: David Schweikert <david@schweikert.ch>
+
+commit 87709d5cf3d210ef7938ed235fb54fef55f20136
+Merge: ccce847 adc238f
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 19:02:51 2016 +0100
+
+    Merge pull request #926 from MrAnno/afprog_keep_alive_fix-3.7
+    
+    Fix program driver keep-alive() option linkage
+
+commit adc238f61d451d4a3be2ff657e517eb1e64b03f7
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Mon Jan 11 10:16:22 2016 +0100
+
+    afprog: fix afprogram_dd_set_keep_alive() linkage
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit ccce847eeadb7cd6ff5b1a3af440c68c21ecc2ff
+Merge: 8a717c7 21d23d0
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 19:02:25 2016 +0100
+
+    Merge pull request #925 from MrAnno/f/patterndb_deadlock-3.7
+    
+    Fix possible deadlock in patterndb
+
+commit 21d23d02dfb1f472a2a42bfac184b9fff8d1158d
+Author: Juhász Viktor <viktor.juhasz@balabit.com>
+Date:   Mon Dec 21 10:12:44 2015 +0100
+
+    patterndb: the set emit function is possible to callback to the mainloop.
+    
+    But if the mainloop currently runs the tick_timer of the patterndb,
+    it causes deadlock, because the timer wait for the patterndb's lock (held by the _pattern_db_process)
+    and the emit function waits for the mainloop.
+    
+    Solution is, that unlock the lock, while the emit functions are run
+    
+    Signed-off-by: Juhász Viktor <viktor.juhasz@balabit.com>
+
+commit 8a717c7e97a547f030836ba8cd94bb1f72a05af0
+Merge: d8f1a16 44e59aa
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 08:56:51 2016 +0100
+
+    Merge pull request #924 from MrAnno/fix-netmask6-filter-on-bigendian-systems-3.7
+    
+    Fix byteorder handling on bigendian systems in netmask6 filter
+
+commit 44e59aa2ca393741f381fd9990470a654afcdbef
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Wed Dec 16 10:19:22 2015 +0100
+
+    netmask6: fix byteorder handling on bigendian systems
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit d8f1a1673190a1a0d77a7c2c5413e233d480f14f
+Merge: f3debc8 3a18c01
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 08:56:27 2016 +0100
+
+    Merge pull request #923 from MrAnno/f/amqp-errors-3.7
+    
+    Improve error handling in amqp
+
+commit 3a18c01756e4684abf40946468ae715fe7df05fb
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Thu Nov 26 09:06:10 2015 +0100
+
+    amqp: add error tag to amqp_basic_publish() error handler
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit 45da122e65b01d8e6e1d0cd6ef8f4322b9e884ef
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Thu Nov 26 09:05:57 2015 +0100
+
+    amqp: fix error tag not to contain a space
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit 122579667ee13dae96ae0afb9b68beeb5c6474d5
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Thu Nov 26 09:05:44 2015 +0100
+
+    amqp: simplify msg_error() calls
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit 405fd54b17668207ec0e683a734971474b72602a
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Thu Nov 26 09:05:08 2015 +0100
+
+    amqp: white space fixes
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit f3debc8e0ccbcbc3d3289b038f036e886fd9cadf
+Merge: 6228e61 e09a5ad
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 08:56:14 2016 +0100
+
+    Merge pull request #922 from MrAnno/f/fix-afsocket-integer-underflow-3.7
+    
+    afsocket: Fix an integer underflow.
+
+commit e09a5ad0e668aab142f36bddde91c6bd55635ca0
+Author: Hanno <hanno@gentoo.org>
+Date:   Thu Nov 12 13:28:19 2015 +0100
+
+    afsocket: Fix an integer underflow.
+    
+    The reason is that the function return value is a -1 on error, however
+    the variable to store that is unsigned, therefore it is unable to store
+    the error value and will underflow. The subsequent check will therefore
+    not catch the error.
+    To fix this change content_len from gsize (unsigned) to gssigned
+    (signed).
+    
+    This was found with Address Sanitizer.
+    
+    Signed-off-by: Hanno Böck <hanno@hboeck.de>
+
+commit 6228e6130b113dffc4b1327ba5f5670b4a710e44
+Merge: 5508650 124e069
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 12 08:55:22 2016 +0100
+
+    Merge pull request #921 from MrAnno/f/fix-suppress-deadlock-3.7
+    
+    F/fix suppress deadlock
+
+commit 124e069c163ff31de64187d77aa2c1f5bad30264
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Tue Nov 17 17:43:01 2015 +0100
+
+    logwriter: add an else clause to log_writer_is_suppressed()
+    
+    I was trying heavily to make this function more readable, but due to
+    the modality in locking, it is difficult to extract anything further.
+    
+    I've added an else clause, which is slightly better for me, but that's
+    how far I could get now.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit 83d599225db80d1deb0c98f966efce1cb92518aa
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Tue Nov 17 17:34:35 2015 +0100
+
+    logwriter: extract a few functions from log_writer_is_msg_suppressed()
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit ff1985a1dc26a9ba938a677c66ab9e50ac492b5b
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Tue Nov 17 17:14:21 2015 +0100
+
+    logwriter: resolve deadlock on suppress_lock
+    
+    There's a strict ordering requirement between suppress_lock and interacting
+    with the main loop. The reason is that the main thread (running the
+    main loop) sometimes acquires suppress_lock (at suppress timer
+    expiration) and while blocking on suppress_lock it cannot service
+    main_loop_calls()
+    
+    This patch makes it sure that ml_batched_timer_update/cancel calls are
+    only done with the suppress lock released.
+    
+    If we do this, we might have a few unfortunate side effects due to races
+    that this patch also tries to handle:
+    
+    Two messages race, one of these matches the recorded last message,
+    the other doesn't. In this case, moving the update on the suppress_timer
+    outside of the lock region might cause two different races:
+    
+    1) matching message comes first, then non-matching
+    
+    This case the suppress_lock protected region decides that the suppress
+    timer needs to fire (#1) and then the other decides that it needs to
+    be cancelled. (#2)
+    
+    If these are processed in order, then we are the same as if the two was
+    also protected by the mutex (which is ok)
+    
+    If they are reversed, e.g. we first cancels the timer and the second arms it,
+    then we might have a timer wakeup which will find no suppressed messages
+    to report (as the non-matching message will set last_msg_count to zero). This
+    spurious wakeup should be handled by the expiration callback.
+    
+    1) non-matching message comes first, then matching
+    
+    This is simply a message reordering case, e.g. we don't
+    want any suppressions to be emitted.
+    
+    In this case the locked regions finds that neither messages matched
+    the recorded one, thus both times they decide to cancel the timer, which
+    is ok. Timer cancellation can be reordered as they will have the same
+    effect anyway.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit b4159c030a495516a541e370150571e4ae0b5ed8
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Tue Nov 17 08:37:39 2015 +0100
+
+    logwriter: remove ml_batched_timer_cancel() from log_writer_release_last_message()
+    
+    _release_last_message should stick to its single responsibility, releasing
+    the last message that we potentially want to suppress. Coupling it with
+    suppress timer manipulation is a mistake, that should be handled by
+    higher levels.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit 55086500f7febc5ce04a3bfed4fbd153a231bb93
+Merge: 9f2354a 4bf0624
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Fri Feb 5 11:02:15 2016 +0100
+
+    Merge pull request #905 from MrAnno/affile-globalcfg-inher-fix-3.7
+    
+    Fix create-dirs() inheritance in file destinations
+
+commit 4bf0624c194bed0e4d709740dc30c16d9e504fa0
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Wed Feb 3 15:18:33 2016 +0100
+
+    affile: fix create-dirs() inheritance
+    
+    When the global `create-dirs` option was set to `yes`, the local one was ignored.
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit 9f2354a0912e71db376cbecbc9b649aa2222f4a0
+Merge: 293dde7 e93dbf5
+Author: Tibor Benke <ihrwein@gmail.com>
+Date:   Fri Feb 5 08:35:56 2016 +0100
+
+    Merge pull request #900 from MrAnno/afsocket-globalcfg-inher-fix-3.7
+    
+    Fix global option inheritance in afunix-source
+
+commit e93dbf5a4f3ca07a6f388598cf4151b82c4e14eb
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Wed Feb 3 14:17:12 2016 +0100
+
+    afsocket: fix pass-unix-credentials() global inheritance
+    
+    The global `pass-unix-credentials` option was not inherited in afunix-source
+    if the `options{};` block was positioned lower in the
+    configuration file than the given module declaration.
+    
+    This commit fixes this issue by moving the "inheritance" assignment from
+    `afunix_sd_new_instance` to `afunix_sd_init`.
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit ca88bac7051cf8dbe877fda61c977345b8c5565f
+Author: László Várady <laszlo.varady@balabit.com>
+Date:   Wed Feb 3 14:15:55 2016 +0100
+
+    afsocket: fix create-dirs() global inheritance
+    
+    The global `create-dirs` option was not inherited in afunix-source
+    if the `options{};` block was positioned lower in the
+    configuration file than the given module declaration.
+    
+    This commit fixes this issue by moving the "inheritance" assignment from
+    `afunix_sd_new_instance` to `afunix_sd_init`.
+    
+    Signed-off-by: László Várady <laszlo.varady@balabit.com>
+
+commit 293dde71edf7017293fe22ecbe32ab60bd1c955b
+Merge: 02faa75 fc970f7
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Thu Feb 4 15:47:34 2016 +0100
+
+    Merge pull request #902 from MrAnno/fix-travis-python-3.7
+    
+    Fix Travis' python related issues in syslog-ng 3.7
+
+commit fc970f7f9db5099d64e254adaa41225cd7baf1d0
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Nov 30 11:45:02 2015 +0100
+
+    requirements: update pylint and specify concrete astroid version
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit aac1a9d8555e6d9f084cd3e36f5c4653670d65e8
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Nov 30 14:22:09 2015 +0100
+
+    python: fix 1.5 pylint errors
+    
+    ************* Module syslogng.debuggercli.completerlang
+    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/completerlang.py:3: [C0411(wrong-import-order), ] standard import "import sys" comes before "import ply.yacc as yacc"
+    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/completerlang.py:5: [C0411(wrong-import-order), ] standard import "from abc import abstractmethod, ABCMeta" comes before "import ply.yacc as yacc"
+    ************* Module syslogng.debuggercli.readline
+    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/readline.py:3: [C0411(wrong-import-order), ] standard import "import readline" comes before "from .debuggercli import DebuggerCLI"
+    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/readline.py:4: [C0411(wrong-import-order), ] standard import "import traceback" comes before "from .debuggercli import DebuggerCLI"
+    ************* Module syslogng.debuggercli.syslognginternals
+    /home/travis/build/ihrwein/syslog-ng/syslog-ng-3.8.0alpha0/modules/python/pylib/syslogng/debuggercli/syslognginternals.py:83: [C0413(wrong-import-position), ] Import "from _syslogngdbg import *" should be placed at the top of the module
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 15bd0ce83d2bd598ee6c1a0a45b10d27fe6419fc
+Author: bkil-syslogng <tamas.nagy@balabit.com>
+Date:   Tue Dec 15 18:04:06 2015 +0100
+
+    .travis.yml: unset PYTHON_CFLAGS
+    
+    Somehow, nowadays the infrastructure is unhealthy and some flags remain
+    set that interfere with autoconf include directory detection.
+    
+    Signed-off-by: bkil-syslogng <tamas.nagy@balabit.com>
+
+commit 02faa75e7ce0bccc79a9898996e598810edc2239
+Merge: ca96362 d90403d
+Author: Balazs Scheidler <balazs.scheidler@balabit.com>
+Date:   Tue Nov 17 18:39:26 2015 +0100
+
+    Merge pull request #789 from ihrwein/revert-PR-740
+    
+    Revert 740 f/fix lexer
+
+commit d90403d3b4015909e46f9c5f549ae672e8b15eaf
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:37:11 2015 +0100
+
+    Revert "plugin: use the cfg_token_block_add_and_consume_token() function"
+    
+    This reverts commit 2b12d01909eca06e71994f511665155269481a9d.
+
+commit de3c33dce2f5579169a6c1ee1ff39a2e85e67fe8
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:37:03 2015 +0100
+
+    Revert "cfg-lexer: add cfg_token_block_add_and_consume_token() function"
+    
+    This reverts commit b20ce43526355881b0551bfd296dd733e950b333.
+
+commit 20a23a70875847d1b77a16f7198357fdd222c64b
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:36:55 2015 +0100
+
+    Revert "cfg-lexer: add cfg_lexer_copy_token() function"
+    
+    This reverts commit ea96b403b042668d49f45d0b8fdeb53816df9411.
+
+commit cddb2518163c82ff4f55ff002bb11a76b9addacb
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:36:47 2015 +0100
+
+    Revert "cfg-grammar: use %destructor to free discarded tokens"
+    
+    This reverts commit 1aa8d73a462f4c5f43f41c6b1c15d5b68edf8dc1.
+
+commit a22e919c62b2850bcd05ef01490350075ac8ff57
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:36:36 2015 +0100
+
+    Revert "cfg-lexer: fix memleak by not strdup()-ing an already cloned string"
+    
+    This reverts commit d69fd7b54230a7fbb614ceeb18a7226b559273b9.
+
+commit 059223a329a7a172c244854ce9bbe38aba820f1f
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:36:24 2015 +0100
+
+    Revert "cfg-lexer: set token type when CFG_KEYWORD_STOP is reached"
+    
+    This reverts commit 860bddb73729d184660ce5659c8ddc8d329e6e0a.
+
+commit b3d83a17d6018b095910b7866f6837b360608a76
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Nov 17 09:35:39 2015 +0100
+
+    Revert "cfg-lexer: fix yylval's type field in cfg_lexer_lookup_keyword()"
+    
+    This reverts commit 3aa5c38868d3edc991b4e0217784da216bffe31d.
+
+commit ca96362a6cddad877fad9366868059089b33474b
+Merge: 2932bef e435faa
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Mon Nov 9 17:17:11 2015 +0100
+
+    Merge pull request #771 from ihrwein/f/fix-kernel-timestamps-3.7
+    
+    system: use keep-timestamp(no) in case of Linux kernel log messages
+
+commit e435faa9df9288e0a7295106b138e494a8a1a4fd
+Author: Benke Tibor <ihrwein@gmail.com>
+Date:   Wed May 27 13:18:53 2015 +0200
+
+    system: use keep-timestamp(no) in case of Linux kernel log messages
+    
+    Kernel messages read from /dev/kmsg may not have accurate timestamps.
+    The  time  source  used for the logs is not updated after system
+     SUSPEND/RESUME. With this patch we ignore the original (and possibly
+     inaccurate) timestamp and use the time of reception.
+    
+    Fixes #121
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 2932bef966d6fc7bd32efe0c40cbb50f6b485c6f
+Merge: 5093378 2b12d01
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Nov 4 21:29:41 2015 +0100
+
+    Merge pull request #740 from ihrwein/f/fix-lexer-bazsi
+    
+    F/fix lexer bazsi
+
+commit 2b12d01909eca06e71994f511665155269481a9d
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Oct 19 11:16:03 2015 +0200
+
+    plugin: use the cfg_token_block_add_and_consume_token() function
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit b20ce43526355881b0551bfd296dd733e950b333
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Oct 19 11:15:35 2015 +0200
+
+    cfg-lexer: add cfg_token_block_add_and_consume_token() function
+    
+    This function takes over the ownership of the parameter token and adds it to
+    tokens.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit ea96b403b042668d49f45d0b8fdeb53816df9411
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Tue Sep 29 12:52:28 2015 +0200
+
+    cfg-lexer: add cfg_lexer_copy_token() function
+    
+    It can be used to copy an YYSTYPE pointer. It will copy the copyable
+    fields (like an int) and clone the "movable" ones.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 1aa8d73a462f4c5f43f41c6b1c15d5b68edf8dc1
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Wed Oct 7 15:06:44 2015 +0200
+
+    cfg-grammar: use %destructor to free discarded tokens
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+
+commit d69fd7b54230a7fbb614ceeb18a7226b559273b9
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Sep 28 15:48:22 2015 +0200
+
+    cfg-lexer: fix memleak by not strdup()-ing an already cloned string
+    
+    cfg_lexer_lookup_keyword() will strdup() the cptr so its a bug to clone
+    it again.
+    
+    Signed-off-by: Balazs Scheidler <balazs.scheidler@balabit.com>
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 860bddb73729d184660ce5659c8ddc8d329e6e0a
+Author: Tibor Benke <ihrwein@gmail.com>
+Date:   Thu Oct 8 10:35:09 2015 +0200
+
+    cfg-lexer: set token type when CFG_KEYWORD_STOP is reached
+    
+    Just for keeping the convention, because the token types should be set in
+    this function.
+    
+    Signed-off-by: Tibor Benke <ihrwein@gmail.com>
+
+commit 3aa5c38868d3edc991b4e0217784da216bffe31d
+Author: Tibor Benke <tibor.benke@balabit.com>
+Date:   Mon Sep 28 15:46:28 2015 +0200
+
+    cfg-lexer: fix yylval's type field in cfg_lexer_lookup_keyword()
+    
+    This function is called from plugin.c but its return value is ignored.
+    The lexer will check the type field but without setting it it exits
+    from the relex loop.
+    
+    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
+
+commit 50933785d16b4c1f30f1e9073f1222b4dd369416
+Merge: 092b712 00806d9
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Nov 4 21:25:49 2015 +0100
+
+    Merge pull request #722 from dnsjts/program-stay-alive
+    
+    Keep the program destination open between configuration reloads
+
+commit 00806d9c7d66a382b2d666f91eb2c217dd6666b6
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:18 2015 +0100
+
+    afprog-dest: add a different persist name generator for queues
+    
+    The LogQueue of the writer had the same name as the ReloadStoreItem,
+    which is clearly a mistake.
+    The impact of the issue was quite low, because it appeared rarely.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 27503af6c41dabcf2cc140fa8e0cda89a351a993
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:18 2015 +0100
+
+    afprog-dest: extract program open logic
+    
+    This commit will extract the program opening logic into a separate
+    method (called afprogram_dd_open_program), therefore this is merely a
+    refactor commit.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit b2121a8492b6c4624a8003f93003ffc950ce94ff
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:18 2015 +0100
+
+    afprog-dest: move child_manager_unregister to deinit
+    
+    The child_manager_unregister has been moved to
+    afprogram_dd_deinit in order to restore the single
+    responsibility of the afprogram_dd_kill_child.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 51aa7d15a08f439d423026a2ab04b43335afedfc
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:17 2015 +0100
+
+    afprog-dest: add AFProgramReloadStoreItem saving logic
+    
+    This commit contains a naive implementation of the
+    AFProgramReloadStoreItem saving logic when the program destination
+    is being deinitalized.
+    
+    Signed-off-by: Fried Zoltán <zoltan.fried@balabit.com>
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 7095493bb44b387f85ade9f346f9d76142c8758a
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:17 2015 +0100
+
+    afprog-dest: add AFProgramReloadStoreItem restoration logic
+    
+    This commit will add a simple implementation of restoring the
+    AFProgramReloadStoreItem structure when syslog-ng is being reloaded.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 99796de612ebb6b167ed96853a8f07d3f9fea398
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:17 2015 +0100
+
+    afprog-dest: add AFProgramReloadStoreItem structure
+    
+    This commit will add the AFProgramReloadStoreItem structure
+    and a basic free function. This structure will hold essential
+    information about the program destination,
+    which allows us to restore it later.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit c93a644adf077bfdfe922fbdcf62dc87d242ed3c
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:17 2015 +0100
+
+    afprog: introduce a new descendant terminating function
+    
+    This commit introduces an additional abstraction layer to the child terminating process, making it
+    unified.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 06c2b6b8cc77f88ff9b053583b3ce3310363e68d
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:16 2015 +0100
+
+    afprog-dest: added keep-alive option
+    
+    This option will control whether the destination program should be
+    terminated at reload, or should be left running.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 47ee3e2ce032070574f1127171a3eb57b135d0fe
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:16 2015 +0100
+
+    afprog-dest: deinit the LogWriter before killing the child
+    
+    The writer deinitialization should be happen before the
+    termination of the child, because at the end of the
+    deinitialization, a force flush can be happen, and if the
+    child is terminated before the force flush, a SIGPIPE can
+    cause the recreation of the destination program.
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 19cb776755c63ed491cd95e2ff90caefcac936bd
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Nov 4 13:26:16 2015 +0100
+
+    afprog-dest: simplify return statement in afprogram_dd_deinit
+    
+    Signed-off-by: Fried Zoltán <zoltan.fried@balabit.com>
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 092b712b2090f03ce2261fd1de88b085c525f1a3
+Merge: bfdd641 68ebe30
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Nov 4 06:59:17 2015 +0100
+
+    Merge pull request #757 from pasztor/f/syslog-debun
+    
+    contrib/syslog-debun: portability improvements and fixes
+
+commit 68ebe30e6eb253e2895222c96e8fd68481f9ab55
+Author: PÁSZTOR György <gyorgy.pasztor@balabit.com>
+Date:   Fri Oct 30 17:04:04 2015 +0100
+
+    contrib/syslog-debun: portability improvements and fixes
+    
+    * eliminate bashisms (not yet complete!) and become more posix shell compatible
+    * basic FreeBSD support
+    * basic HP-UX support
+
+commit bfdd641c15390cc8864f3d58d7a60023d8dcf2a5
+Merge: 9e8d6cd 1f95772
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Nov 4 06:58:04 2015 +0100
+
+    Merge pull request #756 from deirf/f/redis-command-error
+    
+    redis: Return error result when redis command is failed
+
+commit 1f9577208368fa1a19cec6642e4acff03deef326
+Author: Fried Zoltan <zoltan.fried@balabit.com>
+Date:   Fri Oct 30 14:13:15 2015 +0100
+
+    redis: Return error result when redis command is failed
+    
+    Fix a SIGSEGV when redis result of command return an error.
+    Fixes #754
+    
+    Signed-off-by: Fried Zoltan <zoltan.fried@balabit.com>
+
+commit 9e8d6cd471cdbc48d141f5d88202ee84398261dc
+Merge: 0fb9df4 15259a7
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Wed Nov 4 06:56:35 2015 +0100
+
+    Merge pull request #751 from dnsjts/fix-log-msg-ack-cached-abort
+    
+    logmsg: Fix a logmsg_cached_abort assignment
+
+commit 15259a738b0b72ef36f5d1ed3811fee83031cae0
+Author: MÓZES Ádám István <adam.mozes@balabit.com>
+Date:   Wed Oct 28 15:19:42 2015 +0100
+
+    logmsg: Fix a logmsg_cached_abort assignment
+    
+    Explanation for the diff:
+     * `#define ACKTYPE_TO_ABORTFLAG(x) (x == AT_ABORTED ? 1 : 0)`
+     * AT_ABORTED is equal to 2
+    
+    Therefore the second check will fail always.
+    
+    This issue has been found by Coverity Scan.
+    CID: 41449
+    Related Common Weakness Enumeration: CWE-569.
+    
+    The report can be found here:
+    https://scan4.coverity.com/
+    
+    Signed-off-by: MÓZES Ádám István <adam.mozes@balabit.com>
+
+commit 0fb9df4ff44581b3e6860fec5ad19b28450b7d52
+Merge: 6b119e0 9e6c3f5
+Author: Budai Laszlo <laszlo.budai@balabit.com>
+Date:   Tue Oct 27 11:40:36 2015 +0100
+
+    Merge pull request #744 from ihrwein/f/fix-pkg-config-eventlog
+    
+    syslog-ng.pc: add eventlog as a required package
+
+commit 9e6c3f51e916c9a185e088eb0c169f36a77e0c98
+Author: Tibor Benke <ihrwein@gmail.com>
+Date:   Fri Oct 23 20:09:54 2015 +0200
+
+    syslog-ng.pc: add eventlog as a required package
+    
+    Signed-off-by: Tibor Benke <ihrwein@gmail.com>
