@@ -21,23 +21,6 @@ Date:   Mon Dec 21 10:12:44 2015 +0100
     
     Signed-off-by: Juhász Viktor <viktor.juhasz@balabit.com>
 
-commit 8a717c7e97a547f030836ba8cd94bb1f72a05af0
-Merge: d8f1a16 44e59aa
-Author: Budai Laszlo <laszlo.budai@balabit.com>
-Date:   Fri Feb 12 08:56:51 2016 +0100
-
-    Merge pull request #924 from MrAnno/fix-netmask6-filter-on-bigendian-systems-3.7
-    
-    Fix byteorder handling on bigendian systems in netmask6 filter
-
-commit 44e59aa2ca393741f381fd9990470a654afcdbef
-Author: Tibor Benke <tibor.benke@balabit.com>
-Date:   Wed Dec 16 10:19:22 2015 +0100
-
-    netmask6: fix byteorder handling on bigendian systems
-    
-    Signed-off-by: Tibor Benke <tibor.benke@balabit.com>
-
 commit 6228e6130b113dffc4b1327ba5f5670b4a710e44
 Merge: 5508650 124e069
 Author: Budai Laszlo <laszlo.budai@balabit.com>
