@@ -10,7 +10,7 @@ and the following ones should be used instead:
 
 * `collection`
 * `uri`
-  ([https://docs.mongodb.org/manual/reference/connection-string/]())
+  ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
 
 This should enable more fine grained configuration
 and future proofing.
