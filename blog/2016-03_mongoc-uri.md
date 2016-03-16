@@ -13,7 +13,7 @@ and the following ones should be used instead:
   ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
 
 This should enable more fine grained configuration
-and future proofing.
+and future-proofing.
 MongoDB 3 is not officially supported or being tested yet,
 but this kind of connection should
 theoretically enable easy support in the future.
