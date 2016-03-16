@@ -1,30 +1,19 @@
-# MongoDB destination receiving a face lift
+# The MongoDB destination receives a face-lift
 
-We have migrated to the official Mongo-C-Driver binding for providing the
-MongoDB destination driver.
-Previously, libmongo-client provided this binding,
-mandating its own special syntax.
+## Reasons behind the migration
 
-Some of the options have been deprecated
-and the following ones should be used instead:
+We have migrated to the official mongo-c-driver binding for providing the MongoDB destination driver.
+Previously, libmongo-client provided this binding, mandating its own special syntax. However, it has been deprecated and therefore it has not been updated for a while, therefore the migration to mongo-c-driver was inevitable.
 
-* `collection`
-* `uri`
-  ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
+This change will facilitate a future-proof, more fine-grained configuration.
+MongoDB 3 is not officially supported or being tested yet, but this kind of connection should theoretically enable easy MongoDB 3 support in the future.
 
-This should enable more fine grained configuration
-and future-proofing.
-MongoDB 3 is not officially supported or being tested yet,
-but this kind of connection should
-theoretically enable easy support in the future.
+## What to do when using legacy syntax
 
-If you used legacy syntax in your configuration file,
-syslog-ng will substitute the given deprecated options to form a URI.
-Note that certain aspects of semantics could also differ
-between the two drivers,
-so do take care and test the behavior of your deployment.
+If you have used legacy syntax in your configuration file, syslog-ng will substitute the given deprecated options to form a URI.
+Note that certain aspects of semantics could also differ between the two drivers. Therefore, if you have based a system or certain scripts on these, test the behavior of your deployment to ensure that it accomodates the needs of your users.
 
-Here is a non-exhaustive list of aspects to consider:
+A non-exhaustive list of aspects to consider:
 
 * replica set formation
 * health checks
@@ -35,35 +24,55 @@ Here is a non-exhaustive list of aspects to consider:
 * sanitization
 * caching & buffering
 
+## Deprecated options and substitutes
+
+### The mongodb() destination options
+
+Use the following options for the mongodb() destination:
+
+* `collection`
+* `uri`
+  ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
+
+### The deprecated options of mongodb() destination 
+
 Here is the list of deprecated options and their new substitutes:
 
-## host('example.com'), port(1234)
-
-* `uri('mongodb://example.com:1234/syslog')`
-
-## servers('example.com:1234', 'example.net:12345')
-
-* `uri('mongodb://example.com:1234,example.net:12345/syslog')`
-
-## path('/tmp/mongo.sock')
-
-* `uri('mongodb:///tmp/mongo.sock')`
-
-## database('syslog-ng')
+#### database() (DEPRECATED)
+database('syslog-ng')
 
 * `uri('mongodb://example.com:1234/syslog-ng')`
 
-## username('user'), password('pass')
+#### host() (DEPRECATED)
+host('example.com'), port(1234)
+
+* `uri('mongodb://example.com:1234/syslog')`
+
+#### path() (DEPRECATED)
+path('/tmp/mongo.sock')
+
+* `uri('mongodb:///tmp/mongo.sock')`
+
+#### password() (DEPRECATED)
+password('pass')
 
 * `uri('mongodb://user:pass@example.com/syslog')`
 
-## safe_mode(no)
+#### servers() (DEPRECATED)
+servers('example.com:1234', 'example.net:12345')
 
-The original intention of this option was to support asynchronous operation
-where records can be output without waiting for acknowledgement.
+* `uri('mongodb://example.com:1234,example.net:12345/syslog')`
 
-Please see the MongoDB URI documentation for available settings
-that influence such aspects of operation.
+#### username() (DEPRECATED)
+username('user')
+
+* `uri('mongodb://user:pass@example.com/syslog')`
+
+#### safe_mode(no)
+
+The original intention of this option was to support asynchronous operation where records can be output without waiting for acknowledgement.
+
+See the MongoDB URI documentation for available settings that influence such aspects of operation.
 
 For example, you can disable write concern and set timeouts by specifying:
 
