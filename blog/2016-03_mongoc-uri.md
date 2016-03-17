@@ -42,47 +42,61 @@ Use the following options for the mongodb() destination:
 * `uri`
   ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
 
+Inherited options are not affected, so they can be used as before and
+as described in the documentation.
+(e.g.,
+`frac-digits()`,
+`local-time-zone()`,
+`log-fifo-size()`,
+`on-error()`,
+`retries()`,
+`throttle()`,
+`value-pairs()`,
+etc.
+)
+
 ### The deprecated options of mongodb() destination
 
 Here is the list of deprecated options and their new substitutes:
 
 #### database() (DEPRECATED)
-database('syslog-ng')
+`database('syslog-ng')`
 
 * `uri('mongodb://example.com:1234/syslog-ng')`
 
 #### host() (DEPRECATED)
-host('example.com'), port(1234)
+`host('example.com'), port(1234)`
 
 * `uri('mongodb://example.com:1234/syslog')`
 
 #### path() (DEPRECATED)
-path('/tmp/mongo.sock')
+`path('/tmp/mongo.sock')`
 
 * `uri('mongodb:///tmp/mongo.sock')`
 
 #### password() (DEPRECATED)
-password('pass')
+`password('pass')`
 
 * `uri('mongodb://user:pass@example.com/syslog')`
 
 #### servers() (DEPRECATED)
-servers('example.com:1234', 'example.net:12345')
+`servers('example.com:1234', 'example.net:12345')`
 
 * `uri('mongodb://example.com:1234,example.net:12345/syslog')`
 
 #### username() (DEPRECATED)
-username('user')
+`username('user')`
 
 * `uri('mongodb://user:pass@example.com/syslog')`
 
-#### safe_mode(no)
+#### safe_mode() (DEPRECATED)
+`safe_mode(no)`
 
 The original intention of this option was to support asynchronous operation
 where records can be output without waiting for acknowledgement.
 
 See the MongoDB URI documentation for available settings
-that influence such aspects of operation.
+that could influence such aspects of operation.
 
 For example, you can disable write concern and set timeouts by specifying:
 
