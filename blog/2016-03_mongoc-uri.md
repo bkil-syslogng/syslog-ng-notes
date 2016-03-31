@@ -20,7 +20,7 @@ Note that certain aspects of semantics could also differ
 between the two drivers.
 
 Therefore, you should analyze the behavior of your deployed system to ensure
-that the subtle changes in semantics do not cause any a regression.
+that the subtle changes in semantics do not cause any regressions.
 A non-exhaustive list of aspects to consider:
 
 * replica set formation
@@ -42,9 +42,9 @@ Use the following options for the mongodb() destination:
 * `uri`
   ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
 
-Inherited options are not affected, so they can be used as before and
+Inherited options are not affected, therefore they can be used as before and
 as described in the documentation.
-(e.g.,
+(for example,
 `frac-digits()`,
 `local-time-zone()`,
 `log-fifo-size()`,
@@ -52,7 +52,7 @@ as described in the documentation.
 `retries()`,
 `throttle()`,
 `value-pairs()`,
-etc.
+and so on
 )
 
 ### The deprecated options of mongodb() destination
