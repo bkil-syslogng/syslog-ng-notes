@@ -1,0 +1,10 @@
+#!/bin/sh
+if [ $# -eq 0 ]; then
+ exec git rebase \
+  --exec "`dirname "$0"`/git-rebaset-times-exec.sh" \
+  --interactive master
+else
+ exec git rebase \
+  --exec "`dirname "$0"`/git-rebaset-times-exec.sh" \
+  --interactive "$@"
+fi
