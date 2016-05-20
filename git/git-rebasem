@@ -1,0 +1,12 @@
+#!/bin/sh
+ROUNDMINUTE="`date +%Y-%m-%dT%H:%M | xargs date +%s -d`"
+BRANCH="${1-master}"
+shift 1
+
+git rebase \
+  --exec \
+'   GIT_COMMITTER_DATE=@`git log --pretty=tformat:%H '$BRANCH'.. | '\
+'   wc -l | '\
+'   xargs expr '$ROUNDMINUTE' - 61 + '\
+'   ` git commit --amend --reuse-message HEAD' \
+  --interactive "$BRANCH"
