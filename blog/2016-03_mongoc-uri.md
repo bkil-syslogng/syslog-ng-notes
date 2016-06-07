@@ -52,8 +52,7 @@ as described in the documentation.
 `retries()`,
 `throttle()`,
 `value-pairs()`,
-and so on
-)
+and so on)
 
 ### The deprecated options of mongodb() destination
 
