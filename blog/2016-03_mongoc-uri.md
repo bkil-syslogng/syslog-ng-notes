@@ -42,7 +42,13 @@ Use the following options for the mongodb() destination:
 
 * `collection`
 * `uri`
-  ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
+
+You can refer to the documentation for more information about the format of the connection `URI` string:
+
+* [https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/)
+* [https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html](https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html)
+* [https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html](https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html)
+* [https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html](https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html)
 
 Inherited options are not affected, therefore they can be used as before and
 as described in the documentation.
