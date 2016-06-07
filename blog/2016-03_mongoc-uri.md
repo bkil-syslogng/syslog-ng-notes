@@ -19,6 +19,8 @@ syslog-ng will substitute the given deprecated options to form a URI.
 Note that certain aspects of semantics could also differ
 between the two drivers.
 
+---
+
 Therefore, you should analyze the behavior of your deployed system to ensure
 that the subtle changes in semantics do not cause any regressions.
 A non-exhaustive list of aspects to consider:
