@@ -1,4 +1,28 @@
-# The MongoDB destination receives a face-lift
+# URL "slug"
+`mongodb-destination-receives-face-lift`
+
+# Focus Keyword
+`mongodb uri`
+
+# Search engine meta description (at most 142 characters)
+Migrated MongoDB destination driver to the official mongo-c-driver binding
+with URI connection string instead of libmongo-client.
+
+# Post tags
+
+* configuration
+* connection string
+* mongo-c-driver
+* MongoDB
+* syslog-ng
+* uri
+* release
+
+# Categories
+
+* Logging
+
+# Blog post title: The MongoDB destination receives a face-lift
 
 ## Reasons behind the migration
 
