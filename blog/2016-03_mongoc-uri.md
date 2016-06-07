@@ -3,8 +3,10 @@
 ## Reasons behind the migration
 
 We have migrated to the official mongo-c-driver binding for providing the
-MongoDB destination driver.
-Previously, libmongo-client provided this binding,
+MongoDB destination driver
+in syslog-ng 3.8.
+Previously in syslog-ng 3.7.x and earlier,
+libmongo-client provided this binding,
 mandating its own special syntax.
 
 This change will facilitate future-proof and more fine-grained configuration.
