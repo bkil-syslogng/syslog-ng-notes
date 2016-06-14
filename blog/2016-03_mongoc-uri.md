@@ -2,7 +2,7 @@
 `mongodb-destination-receives-face-lift`
 
 # Focus Keyword
-`mongodb uri`
+`mongodb URI`
 
 # Search engine meta description (at most 142 characters)
 Migrated MongoDB destination driver to the official mongo-c-driver binding
@@ -15,7 +15,7 @@ with URI connection string instead of libmongo-client.
 * mongo-c-driver
 * MongoDB
 * syslog-ng
-* uri
+* URI
 * release
 
 # Categories
