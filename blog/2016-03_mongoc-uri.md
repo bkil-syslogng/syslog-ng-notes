@@ -62,7 +62,7 @@ A non-exhaustive list of aspects to consider:
 
 ## Deprecated options and substitutes
 
-### The mongodb() destination options
+### Recommended mongodb() destination option substitutes
 
 Use the following options for the mongodb() destination:
 
