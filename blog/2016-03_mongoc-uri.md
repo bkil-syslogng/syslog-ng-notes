@@ -62,7 +62,7 @@ A non-exhaustive list of aspects to consider:
 
 ## Deprecated options and substitutes
 
-### The mongodb() destination options
+### Recommended mongodb() destination option substitutes
 
 Use the following options for the mongodb() destination:
 
@@ -71,10 +71,10 @@ Use the following options for the mongodb() destination:
 
 You can refer to the documentation for more information about the format of the connection `URI` string:
 
-* [https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/)
-* [https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html](https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html)
-* [https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html](https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html)
-* [https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html](https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html)
+* [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) ([mirror](https://web.archive.org/web/20160614104734/https://docs.mongodb.com/manual/reference/connection-string/))
+* [Class ConnectionString at the Java API documentation](https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html)
+* [MongoClient or how to connect in a new and better way](https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html)
+* [URI format for defining connections between applications and MongoDB instances in the official MongoDB drivers](https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html)
 
 Inherited options are not affected, therefore they can be used as before and
 as described in the documentation.
