@@ -1,10 +1,36 @@
-# The MongoDB destination receives a face-lift
+# URL "slug"
+`mongodb-destination-receives-face-lift`
+
+# Focus Keyword
+`mongodb URI`
+
+# Search engine meta description (at most 142 characters)
+Migrated MongoDB destination driver to the official mongo-c-driver binding
+with URI connection string instead of libmongo-client.
+
+# Post tags
+
+* configuration
+* connection string
+* mongo-c-driver
+* MongoDB
+* syslog-ng
+* URI
+* release
+
+# Categories
+
+* Logging
+
+# Blog post title: The MongoDB destination receives a face-lift
 
 ## Reasons behind the migration
 
 We have migrated to the official mongo-c-driver binding for providing the
-MongoDB destination driver.
-Previously, libmongo-client provided this binding,
+MongoDB destination driver
+in syslog-ng 3.8.
+Previously in syslog-ng 3.7.x and earlier,
+libmongo-client provided this binding,
 mandating its own special syntax.
 
 This change will facilitate future-proof and more fine-grained configuration.
@@ -18,6 +44,8 @@ If you have used legacy syntax in your configuration file,
 syslog-ng will substitute the given deprecated options to form a URI.
 Note that certain aspects of semantics could also differ
 between the two drivers.
+
+---
 
 Therefore, you should analyze the behavior of your deployed system to ensure
 that the subtle changes in semantics do not cause any regressions.
@@ -40,7 +68,13 @@ Use the following options for the mongodb() destination:
 
 * `collection`
 * `uri`
-  ([https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/))
+
+You can refer to the documentation for more information about the format of the connection `URI` string:
+
+* [https://docs.mongodb.org/manual/reference/connection-string/](https://docs.mongodb.org/manual/reference/connection-string/)
+* [https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html](https://api.mongodb.com/java/current/com/mongodb/ConnectionString.html)
+* [https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html](https://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html)
+* [https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html](https://mongodb-documentation.readthedocs.io/en/latest/reference/connection-string.html)
 
 Inherited options are not affected, therefore they can be used as before and
 as described in the documentation.
@@ -52,8 +86,7 @@ as described in the documentation.
 `retries()`,
 `throttle()`,
 `value-pairs()`,
-and so on
-)
+and so on)
 
 ### The deprecated options of mongodb() destination
 
