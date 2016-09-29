@@ -1,0 +1,25 @@
+#!/bin/sh
+
+git filter-branch \
+  --msg-filter \
+'sed " '\
+'s~&~\&amp;~g ;'\
+'s~<~\&lt;~g ;'\
+'s~>~\&gt;~g ;'\
+'" |'\
+'sed ":a; N; s~\n~<br>~; t a" |'\
+'sed -r "s'\
+'~(^|<br>)((<br>*)(Signed-off-by:[^<]*<br>)*(Signed-off-by:[^<]*(<br>)*)?)$'\
+'~\1<br>Cherry picked by \"it \&lt;it@example.com\&gt;\"'\
+' from:<br>github.com/balabit/syslog-ng/commit/$GIT_COMMIT<br>\2'\
+'~" |'\
+'sed "'\
+'s~<br>~\n~g ;'\
+'s~\&lt;~<~g ;'\
+'s~\&gt;~>~g ;'\
+'s~\&amp;~\&~g ;'\
+'"'\
+  --force \
+  master..
+
+# you could rewrite the whole history of a branch if you want to
