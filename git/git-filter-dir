@@ -1,0 +1,54 @@
+#!/bin/sh
+
+DIR="$1"
+
+[ -n "$DIR" ] || exit 1
+
+git filter-branch \
+  --force \
+  --msg-filter \
+'sed " '\
+'s~&~\&~g ;'\
+'s~<~\<~g ;'\
+'s~>~\>~g ;'\
+'" | '\
+'sed ":a; N; s~\n~<br>~; t a" | '\
+'sed -r "s'\
+'~(^|<br>)((<br>)*(Signed-off-by:[^<]*<br>)*(Signed-off-by:[^<]*(<br>)*)?)$'\
+'~\1<here>\2~'\
+' ; '\
+'t e'\
+' ; '\
+'s~(<br>)*$~<br><here>~'\
+' ; '\
+':e'\
+' ; '\
+'s'\
+'~<here>'\
+'~<br>'\
+'Cherry picked and subdirectory-filtered to \"'${DIR}'\"<br>'\
+'by \"xy \<xy@example.com\>\" from:<br>'\
+'github.com/balabit/syslog-ng/commit/$GIT_COMMIT<br>'\
+'~" |'\
+'sed "'\
+'s~<br>~\n~g ;'\
+'s~\<~<~g ;'\
+'s~\>~>~g ;'\
+'s~\&~\&~g ;'\
+'"'\
+ HEAD
+
+git filter-branch \
+  --force \
+  --subdirectory-filter \
+ "$DIR"
+
+git filter-branch \
+  --force \
+  --prune-empty \
+  --tree-filter \
+  '\
+   mkdir --parents "$DIR"; \
+   mv --target-directory "$DIR" *; \
+   true \
+  '
